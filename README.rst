@@ -2,14 +2,25 @@
 Selection detection by conditional coalescent tree
 ===================================================
 
-SCCT (\ **S**\ election detection by \ **C**\ onditional \ **C**\ oalescent \ **T**\ ree) is a
-computational efficiency software developed to detect recent 
+SCCT [#]_ (\ **S**\ election detection by \ **C**\ onditional \ **C**\ oalescent \ **T**\ ree) is a
+efficiency computational software developed to detect recent 
 positive selection using deep sequencing data. It's robust to various demographic events and also robust
 to the variations of mutation rates and recombination rates. This method is also a powerful method, which has power
-comparable to iHS [#]_ method. SCCT ,however, improved the ability to pinpoint selective causal sites, facilitated with 
+comparable to iHS [#]_ method. SCCT, however, improved the ability to pinpoint selective causal sites, facilitated with 
 other variant annotations, which can greatly help geneticists to explore the mechanisms behind positive selection events.
 
+.. [#] **Our paper are submitted, hope you are interested in**.
 .. [#] Voight, B. F., Kudaravalli, S., Wen, X., & Pritchard, J. K. (2006). A map of recent positive selection in the human genome. PLoS Biology, 4(3), e72. doi:10.1371/journal.pbio.0040072.
+
+Run SCCT software
+-----------------
+If you want to use this software, please read the documentation in ``DOC`` directory, 
+which contains a tutorial to play a toy example.
+
+Replicate simulation results
+----------------------------------
+If you want to replicate the simulation results in our paper, please consult and run the the scripts in ``simulation_scripts`` directory.
+
 
 |
 |

@@ -1,0 +1,114 @@
+/*
+ * Compute percentile for a list of single values. 
+ *
+ */
+
+var carrier = require('./carrier.js');
+
+var col_index = 4;  // column index for value to compute
+var percentile = 0.95; //critical value.
+var transform = 1; //critical value.
+
+if (process.argv.length != 5) {
+	console.log("--------------------------")
+	console.log("Compute percentile, version 1.0, wavefancy@gmail.com")
+	console.log("Usages:")
+	console.log("parameter1(int): column index")
+	console.log("parameter2(float): percentile")
+	console.log("parameter3(int): whether transformed to abolsulte value.")
+	// console.log("parameter4(int): value index.")
+	console.log("[Column index start from 1.]")
+	console.log("[1 for do not transform, -1 for transform]")
+	console.log("--------------------------")
+
+	process.exit(-1);
+};
+
+col_index = parseInt(process.argv[2])-1;
+percentile = parseFloat(process.argv[3]);
+transform = parseInt(process.argv[4]);
+
+if (isNaN(col_index)) {
+	console.log("Plese set proper number for [column index]")
+	process.exit(-1);
+};
+
+if (isNaN(percentile)) {
+	console.log("Plese set proper number for [percentile]")
+	process.exit(-1);
+};
+
+if (isNaN(transform)) {
+	console.log("Plese set proper number for [transform action]")
+	process.exit(-1);
+};
+
+
+// console.log(val_index);
+
+//compute results.
+var all_results = []; //store all results.
+
+process.stdin.resume();
+var my_carrier = carrier.carry(process.stdin);
+
+my_carrier.on('line',function (line) {
+
+		var arr = line.split(/\s+/);
+		var t = parseFloat(arr[col_index]);
+		if (!isNaN(t)) {
+			if (transform > 0) {
+				all_results.push(t);
+			}else{
+				all_results.push(Math.abs(t));
+			};
+		};
+})
+
+my_carrier.on('end',function(){
+	// computeNB();
+
+	all_results.sort(DoubleSort);
+
+//	console.log(all_results);
+	var c = all_results[Math.floor(all_results.length * percentile)];
+
+	// console.log(Math.floor(all_results.length * critical));
+	console.log(c);
+});
+
+function DoubleSort(a,b){
+    return a-b;
+   /* if( a < b ){
+        return -1;    
+    }
+    if ( a > b ){
+        return 1
+    }
+    return 0 */
+}
+// /**
+// * Compute the number of value with bigger than the critical value for each window.
+// **/
+// function computeNB(){
+
+// 	if (sec_array.length > 0) {  //compute results.
+
+// 			// console.log(sec_array);
+
+// 			for (var i = 0; i <= sec_array.length-win_size ; i=i+step) {
+// 				//compute the number of critical value.
+// 				var nb = 0;
+// 				for (var j = i; j < i+win_size; j++) {
+// 					if (Math.abs(sec_array[j]) >= threshold) {
+// 						nb++;
+// 					};
+// 				};
+// 				all_results.push(nb);
+// 				// console.log(nb);
+// 			};
+
+// 			//clear section array
+// 			sec_array = [];
+// 	}
+// }
