@@ -9,7 +9,7 @@ to the variations of mutation rates and recombination rates. This method is also
 comparable to iHS [#]_ method. SCCT, however, improved the ability to pinpoint selective causal sites, facilitated with 
 other variant annotations, which can greatly help geneticists to explore the mechanisms behind positive selection events.
 
-.. [#] **Our paper was submitted, hope you are interested in**.
+.. [#] Wang, M., Huang, X., Li, R., Xu, H., Jin, L., & He, Y. (2014). **Detecting Recent Positive Selection with High Accuracy and Reliability by Conditional Coalescent Tree.** Molecular Biology and Evolution, msu244–. doi:10.1093/molbev/msu244.
 .. [#] Voight, B. F., Kudaravalli, S., Wen, X., & Pritchard, J. K. (2006). A map of recent positive selection in the human genome. PLoS Biology, 4(3), e72. doi:10.1371/journal.pbio.0040072.
 
 Run SCCT software
