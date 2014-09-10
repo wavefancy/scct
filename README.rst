@@ -28,7 +28,7 @@ If you want to replicate the simulation results in our paper, please consult and
 |
 
 .. Note:: 
-	Copyright (c) 2014 (Wallace) wavefancy@gmail.com
+	Copyright (c) 2014 (Wallace) wavefancy[AT]gmail.com
 
 	Permission is hereby granted, free of charge, to any person
 	obtaining a copy of this software and associated sources, binaries and  documentation
